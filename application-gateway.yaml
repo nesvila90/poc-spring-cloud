@@ -1,6 +1,3 @@
-server:
-  port: 8080
-
 spring:
   application:
     name: application-gateway
@@ -23,9 +20,23 @@ spring:
         #  uri: http://localhost:9092/
         #  predicates:
         #    - Path=/nt-ms2/**
+server:
+  port: 8080
+
 eureka:
+  instance:
+    ip-address: 127.0.0.1
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 60
+    preferIpAddress: false
+    #instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
+    registryFetchIntervalSeconds: 30
+    eurekaServerReadTimeoutSeconds: 60
+    eurekaServerConnectTimeoutSeconds: 60
+    region: default
     serviceUrl:
       defaultZone: http://localhost:8082/eureka/
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
