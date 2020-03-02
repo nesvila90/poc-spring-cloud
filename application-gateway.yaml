@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: application-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+        - name: RefisGatewayGlobalFilter
+      routes:
+        - id: nt-ms1
+          uri: http://localhost:8181/credibanco-usuario
+          predicates:
+            - Path=/credibanco-usuario/**
+          filters:
+            - name: RefisGatewayPreFilter
+            - name: RefisGatewayPostFilter
+        #- id: nt-ms2
+        #  uri: http://localhost:9092/
+        #  predicates:
+        #    - Path=/nt-ms2/**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
