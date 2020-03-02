@@ -2,10 +2,10 @@ spring:
   application:
     name: application-gateway
   cloud:
+    name: application-gateway
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      discovery.locator:
+        enabled: true
       default-filters:
         - name: RefisGatewayGlobalFilter
       routes:
@@ -23,20 +23,20 @@ spring:
 server:
   port: 8080
 
-# eureka:
-#   instance:
-#     ip-address: 127.0.0.1
-#     hostname: localhost
-#     leaseRenewalIntervalInSeconds: 30
-#     leaseExpirationDurationInSeconds: 60
-#     preferIpAddress: false
-#     #instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#   client:
-#     registryFetchIntervalSeconds: 30
-#     eurekaServerReadTimeoutSeconds: 60
-#     eurekaServerConnectTimeoutSeconds: 60
-#     region: default
-#     serviceUrl:
-#       defaultZone: http://localhost:8082/eureka/
-#     register-with-eureka: true
-#     fetch-registry: true
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 60
+    preferIpAddress: false
+    #instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registryFetchIntervalSeconds: 30
+    eurekaServerReadTimeoutSeconds: 60
+    eurekaServerConnectTimeoutSeconds: 60
+    region: default
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+    register-with-eureka: true
+    fetch-registry: true
