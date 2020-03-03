@@ -2,10 +2,9 @@ package com.example.integraciones.service.person.impl;
 
 import com.example.integraciones.commons.exceptions.persistence.DataCorruptedPersistenceException;
 import com.example.integraciones.commons.exceptions.persistence.PortalPersistenceException;
-import com.example.integraciones.domain.entity.enums.IdType;
 import com.example.integraciones.domain.entity.Person;
+import com.example.integraciones.domain.entity.enums.IdType;
 import com.example.integraciones.repository.person.PersonRepositoryFacade;
-import com.example.integraciones.service.person.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

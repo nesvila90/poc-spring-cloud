@@ -5,7 +5,7 @@ import com.example.integraciones.commons.exceptions.persistence.DataCorruptedPer
 import com.example.integraciones.commons.exceptions.persistence.PortalPersistenceException;
 import com.example.integraciones.domain.entity.Person;
 import com.example.integraciones.domain.entity.enums.IdType;
-import com.example.integraciones.service.person.PersonService;
+import com.example.integraciones.service.person.impl.PersonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

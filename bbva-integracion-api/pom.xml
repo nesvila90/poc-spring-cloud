@@ -11,9 +11,9 @@
 
 
     <groupId>com.indra.bbva.refis.poc</groupId>
-    <artifactId>integraciones</artifactId>
+    <artifactId>bbva-integracion-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>integraciones</name>
+    <name>bbva-integracion-api</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
