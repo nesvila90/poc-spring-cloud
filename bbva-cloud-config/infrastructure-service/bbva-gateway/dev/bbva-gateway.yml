@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: application-gateway
+  config:
+    hostname: bbva-config-server
+    port: 8081
+    uri: http://${spring.cloud.config.hostname}:${spring.cloud.config.port}
+    fail-fast: false
+    #      discovery:
+    #        enabled: true
+    #        service-id: config-server
+    gateway:
+      discovery.locator:
+        enabled: true
+      default-filters:
+        - name: RefisGatewayGlobalFilter
+      routes:
+        - id: nt-ms1
+          uri: http://localhost:8181/credibanco-usuario
+          predicates:
+            - Path=/credibanco-usuario/**
+          filters:
+            - name: RefisGatewayPreFilter
+            - name: RefisGatewayPostFilter
+        #- id: nt-ms2
+        #  uri: http://localhost:9092/
+        #  predicates:
+        #    - Path=/nt-ms2/**
+  profiles:
+    active: dev
+    
+server:
+  port: 8080
+
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 60
+    preferIpAddress: false
+    #instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registryFetchIntervalSeconds: 30
+    eurekaServerReadTimeoutSeconds: 60
+    eurekaServerConnectTimeoutSeconds: 60
+    region: default
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+    register-with-eureka: true
+    fetch-registry: true
