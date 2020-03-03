@@ -1,6 +1,6 @@
 spring:
   application:
-    name: application-gateway
+    name: bbva-gateway
   config:
     hostname: bbva-config-server
     port: 8081
@@ -49,3 +49,10 @@ eureka:
       defaultZone: http://localhost:8082/eureka/
     register-with-eureka: true
     fetch-registry: true
+management:
+  server:
+    address: 127.0.0.1
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics"
