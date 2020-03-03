@@ -1,0 +1,35 @@
+spring:
+  profile:
+    active: default
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nesvila90/poc-spring-cloud.git/
+          search-paths:
+            - "bbva-cloud-config/infrastructure-service/{application}/{profile}"
+            - "bbva-cloud-config/api/{application}/{profile}"
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 60
+    preferIpAddress: false
+    #instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registryFetchIntervalSeconds: 30
+    eurekaServerReadTimeoutSeconds: 60
+    eurekaServerConnectTimeoutSeconds: 60
+    region: default
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+management:
+  server:
+    address: 127.0.0.1
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics"

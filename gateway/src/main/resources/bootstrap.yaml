@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: bbva-gateway
+  profiles:
+    active: dev
+  cloud:
+    config:
+      hostname: localhost
+      port: 8081
+      uri: http://${spring.cloud.config.hostname}:${spring.cloud.config.port}
+      fail-fast: false

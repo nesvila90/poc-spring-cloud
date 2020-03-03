@@ -1,0 +1,72 @@
+eureka:
+  client:
+    eurekaServerConnectTimeoutSeconds: 60
+    eurekaServerReadTimeoutSeconds: 60
+    fetch-registry: true
+    region: default
+    register-with-eureka: true
+    registryFetchIntervalSeconds: 30
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    leaseExpirationDurationInSeconds: 60
+    leaseRenewalIntervalInSeconds: 30
+    preferIpAddress: false
+jwt:
+  secret-key: ${secret:secret}
+  validity-in-milliseconds: ${expire-token:3600000}
+security:
+  encoding-strength: 256
+  jwt:
+    client-id: testjwtclientid
+    client-secret: XY7kmzoNzl100
+    grant-type: password
+    resource-ids: testjwtresourceid
+    scope-read: read
+    scope-write: write
+  oauth2:
+    resource:
+      filter-order: 3
+  security-realm: Spring Boot JWT Example Realm
+  signing-key: MaYzkSjmkzPC57L
+spring:
+  application:
+    name: application-integraciones
+  datasource:
+    driver-class-name: org.h2.Driver
+    initialSize: 5
+    maxActive: 10
+    maxIdle: 5
+    minIdle: 2
+    password: password
+    removeAbandoned: true
+    url: jdbc:h2:file:~/test;
+    username: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
+      jadira:
+        usertype:
+          autoRegisterUserTypes: true
+    show-sql: true
