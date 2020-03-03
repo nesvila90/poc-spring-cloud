@@ -3,7 +3,6 @@ spring:
     name: refis-application-discovery
 server:
   port: 8082
-
 eureka:
   instance:
     hostname: localhost
