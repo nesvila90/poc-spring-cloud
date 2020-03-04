@@ -70,3 +70,7 @@ spring:
         usertype:
           autoRegisterUserTypes: true
     show-sql: true
+management:
+  endpoint:
+    metrics:
+      enabled: true
